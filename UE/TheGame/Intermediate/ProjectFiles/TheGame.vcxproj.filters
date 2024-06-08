@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\TheGame.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{958FF0FE-A0FA-4289-9F35-99AC703DFB63}</UniqueIdentifier>
+      <UniqueIdentifier>{CC41BE78-40A5-4DEE-8ACC-CF1E72E5BA4F}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\TheGame.Target.cs">
       <Filter>Source</Filter>
@@ -12,9 +12,12 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{24C50DD4-26D5-4A93-99EF-8E4E8FE618C9}</UniqueIdentifier>
+      <UniqueIdentifier>{BB35C246-39A7-4AE7-BC9E-4E6824DEC536}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorSettings.ini">
       <Filter>Config</Filter>
     </None>
     <None Include="..\..\Config\DefaultEngine.ini">
@@ -24,8 +27,14 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\TheGame">
-      <UniqueIdentifier>{25A7C2DC-8B0B-461E-8EBD-6247D847C40B}</UniqueIdentifier>
+      <UniqueIdentifier>{B539B62B-DABE-428E-B884-18A1D0418371}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\TheGame\MyPawn.cpp">
+      <Filter>Source\TheGame</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TheGame\MyPawn.h">
+      <Filter>Source\TheGame</Filter>
+    </ClInclude>
     <None Include="..\..\Source\TheGame\TheGame.Build.cs">
       <Filter>Source\TheGame</Filter>
     </None>

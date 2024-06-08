@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\TheGame.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{CC41BE78-40A5-4DEE-8ACC-CF1E72E5BA4F}</UniqueIdentifier>
+      <UniqueIdentifier>{979DA926-7365-4BD3-9529-CBE1EB2DB1F7}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\TheGame.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{BB35C246-39A7-4AE7-BC9E-4E6824DEC536}</UniqueIdentifier>
+      <UniqueIdentifier>{0ABEE144-2F11-4FED-A9C0-9ED6F5248EE5}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -26,15 +26,12 @@
     <None Include="..\..\Config\DefaultGame.ini">
       <Filter>Config</Filter>
     </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
     <Filter Include="Source\TheGame">
-      <UniqueIdentifier>{B539B62B-DABE-428E-B884-18A1D0418371}</UniqueIdentifier>
+      <UniqueIdentifier>{CAD3DA01-BA5A-4187-8AA2-DDF3838AEF09}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\TheGame\MyPawn.cpp">
-      <Filter>Source\TheGame</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\TheGame\MyPawn.h">
-      <Filter>Source\TheGame</Filter>
-    </ClInclude>
     <None Include="..\..\Source\TheGame\TheGame.Build.cs">
       <Filter>Source\TheGame</Filter>
     </None>
@@ -49,6 +46,36 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\TheGame\TheGameGameModeBase.h">
       <Filter>Source\TheGame</Filter>
+    </ClInclude>
+    <Filter Include="Source\TheGame\Private">
+      <UniqueIdentifier>{B2726B55-C47B-4401-8E76-91DC39271ABA}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\TheGame\Private\SHGameModeBase.cpp">
+      <Filter>Source\TheGame\Private</Filter>
+    </ClCompile>
+    <Filter Include="Source\TheGame\Private\Player">
+      <UniqueIdentifier>{FF5E1F54-F9ED-4AA5-8821-7BB877686F17}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\TheGame\Private\Player\SHCharacter.cpp">
+      <Filter>Source\TheGame\Private\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TheGame\Private\Player\SHPlayerController.cpp">
+      <Filter>Source\TheGame\Private\Player</Filter>
+    </ClCompile>
+    <Filter Include="Source\TheGame\Public">
+      <UniqueIdentifier>{3DB11454-B926-4C49-93E5-F7819DDFDC8D}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\TheGame\Public\SHGameModeBase.h">
+      <Filter>Source\TheGame\Public</Filter>
+    </ClInclude>
+    <Filter Include="Source\TheGame\Public\Player">
+      <UniqueIdentifier>{7AB53A8C-EDD2-40F9-8BEB-5C4D289904E9}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\TheGame\Public\Player\SHCharacter.h">
+      <Filter>Source\TheGame\Public\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TheGame\Public\Player\SHPlayerController.h">
+      <Filter>Source\TheGame\Public\Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,14 +1,11 @@
-﻿  Invalidating makefile for TheGameEditor (MyPawn.cpp.obj.response modified)
-  Building TheGameEditor...
+﻿  Building TheGameEditor...
   Using Visual Studio 2022 14.39.33523 toolchain (D:\vs\VC\Tools\MSVC\14.39.33519) and Windows 10.0.22621.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  Building 6 actions with 8 processes...
-    [1/6] TheGame.init.gen.cpp
-    [2/6] MyPawn.cpp
-    [3/6] MyPawn.gen.cpp
-    [4/6] UE4Editor-TheGame-0002.lib
-       Создается библиотека D:\1game\game\UE\TheGame\Intermediate\Build\Win64\UE4Editor\Development\TheGame\UE4Editor-TheGame-0002.lib и объект D:\1game\game\UE\TheGame\Intermediate\Build\Win64\UE4Editor\Development\TheGame\UE4Editor-TheGame-0002.exp
-    [5/6] UE4Editor-TheGame-0002.dll
-       Создается библиотека D:\1game\game\UE\TheGame\Intermediate\Build\Win64\UE4Editor\Development\TheGame\UE4Editor-TheGame-0002.suppressed.lib и объект D:\1game\game\UE\TheGame\Intermediate\Build\Win64\UE4Editor\Development\TheGame\UE4Editor-TheGame-0002.suppressed.exp
-    [6/6] TheGameEditor.target
-  Total time in Parallel executor: 6,72 seconds
-  Total execution time: 8,34 seconds
+  Building 4 actions with 8 processes...
+    [1/4] SHCharacter.cpp
+    [2/4] UE4Editor-TheGame-0006.lib
+       Создается библиотека D:\1game\game\UE\TheGame\Intermediate\Build\Win64\UE4Editor\Development\TheGame\UE4Editor-TheGame-0006.lib и объект D:\1game\game\UE\TheGame\Intermediate\Build\Win64\UE4Editor\Development\TheGame\UE4Editor-TheGame-0006.exp
+    [3/4] UE4Editor-TheGame-0006.dll
+       Создается библиотека D:\1game\game\UE\TheGame\Intermediate\Build\Win64\UE4Editor\Development\TheGame\UE4Editor-TheGame-0006.suppressed.lib и объект D:\1game\game\UE\TheGame\Intermediate\Build\Win64\UE4Editor\Development\TheGame\UE4Editor-TheGame-0006.suppressed.exp
+    [4/4] TheGameEditor.target
+  Total time in Parallel executor: 1,92 seconds
+  Total execution time: 2,54 seconds

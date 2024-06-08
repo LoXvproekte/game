@@ -21,7 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeTheGame_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x755F4EBC,
+				0x7903A10C,
 				0x41C00CA3,
 				METADATA_PARAMS(nullptr, 0)
 			};

@@ -264,11 +264,8 @@
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\shared"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\winrt"
-/FI"D:\1game\game\UE\TheGame\Intermediate\Build\Win64\TheGameEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Yu"D:\1game\game\UE\TheGame\Intermediate\Build\Win64\TheGameEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Fp"D:\1game\game\UE\TheGame\Intermediate\Build\Win64\TheGameEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
 "D:\1game\game\UE\TheGame\Source\TheGame\Private\Player\SHCharacter.cpp"
-/FI"D:\1game\game\UE\TheGame\Intermediate\Build\Win64\UE4Editor\Development\TheGame\Definitions.TheGame.h"
+/FI"D:\1game\game\UE\TheGame\Intermediate\Build\Win64\UE4Editor\Development\TheGame\Definitions.h"
 /Fo"D:\1game\game\UE\TheGame\Intermediate\Build\Win64\UE4Editor\Development\TheGame\SHCharacter.cpp.obj"
 /TP
 /GR-

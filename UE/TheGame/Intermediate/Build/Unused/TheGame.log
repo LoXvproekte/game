@@ -1,11 +1,14 @@
-﻿  Building TheGameEditor...
+﻿  Invalidating makefile for TheGameEditor (SHCharacter.cpp.obj.response modified)
+  Building TheGameEditor...
   Using Visual Studio 2022 14.39.33523 toolchain (D:\vs\VC\Tools\MSVC\14.39.33519) and Windows 10.0.22621.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  Building 4 actions with 8 processes...
-    [1/4] SHCharacter.cpp
-    [2/4] UE4Editor-TheGame-0006.lib
-       Создается библиотека D:\1game\game\UE\TheGame\Intermediate\Build\Win64\UE4Editor\Development\TheGame\UE4Editor-TheGame-0006.lib и объект D:\1game\game\UE\TheGame\Intermediate\Build\Win64\UE4Editor\Development\TheGame\UE4Editor-TheGame-0006.exp
-    [3/4] UE4Editor-TheGame-0006.dll
-       Создается библиотека D:\1game\game\UE\TheGame\Intermediate\Build\Win64\UE4Editor\Development\TheGame\UE4Editor-TheGame-0006.suppressed.lib и объект D:\1game\game\UE\TheGame\Intermediate\Build\Win64\UE4Editor\Development\TheGame\UE4Editor-TheGame-0006.suppressed.exp
-    [4/4] TheGameEditor.target
-  Total time in Parallel executor: 1,92 seconds
-  Total execution time: 2,54 seconds
+  Building 6 actions with 8 processes...
+    [1/6] TheGame.init.gen.cpp
+    [2/6] SHCharacter.cpp
+    [3/6] SHCharacter.gen.cpp
+    [4/6] UE4Editor-TheGame-0037.lib
+       Создается библиотека D:\1game\game\UE\TheGame\Intermediate\Build\Win64\UE4Editor\Development\TheGame\UE4Editor-TheGame-0037.lib и объект D:\1game\game\UE\TheGame\Intermediate\Build\Win64\UE4Editor\Development\TheGame\UE4Editor-TheGame-0037.exp
+    [5/6] UE4Editor-TheGame-0037.dll
+       Создается библиотека D:\1game\game\UE\TheGame\Intermediate\Build\Win64\UE4Editor\Development\TheGame\UE4Editor-TheGame-0037.suppressed.lib и объект D:\1game\game\UE\TheGame\Intermediate\Build\Win64\UE4Editor\Development\TheGame\UE4Editor-TheGame-0037.suppressed.exp
+    [6/6] TheGameEditor.target
+  Total time in Parallel executor: 2,09 seconds
+  Total execution time: 4,03 seconds

@@ -26,7 +26,7 @@ ASHCharacter::ASHCharacter()
 void ASHCharacter::BeginPlay()
 {
     Super::BeginPlay();
-    GetCharacterMovement()->MaxWalkSpeed = 0;
+    GetCharacterMovement()->MaxWalkSpeed = 100;
 }
 
 // Called every frame
@@ -44,7 +44,7 @@ void ASHCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
     PlayerInputComponent->BindAxis("MoveForward", this, &ASHCharacter::MoveForward);
     PlayerInputComponent->BindAxis("MoveRight", this, &ASHCharacter::MoveRight);
     PlayerInputComponent->BindAxis("LookUp", this, &ASHCharacter::LookUp);
-    PlayerInputComponent->BindAxis("Turn", this, &ASHCharacter::AddControllerYawInput);
+    PlayerInputComponent->BindAxis("Turn", this, &ASHCharacter::LookRight);
 
 
     PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ASHCharacter::Jump);
@@ -57,13 +57,16 @@ void ASHCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 void ASHCharacter::MoveForward(float Value)
 {
     float acceleration = 0.01f; // Коэффициент ускорения
-    float maxSpeed = 400.0f; // Максимальная скорость передвижения
+    float maxSpeed = 600.0f; // Максимальная скорость передвижения
 
     float currentSpeed = GetCharacterMovement()->MaxWalkSpeed;
     currentSpeed = FMath::Lerp(currentSpeed, maxSpeed, acceleration);
     GetCharacterMovement()->MaxWalkSpeed = currentSpeed;
     AddMovementInput(GetActorForwardVector(), Value);
 }
+
+
+
 /*
 void ASHCharacter::MoveForward(float Value)
 {
@@ -108,3 +111,10 @@ void ASHCharacter::LookRight(float Value)
 
 
 
+float ASHCharacter::MoveDirection() const {
+    FVector VelocityNormalVector = GetVelocity().GetSafeNormal();
+    float Angel = FMath::Acos(FVector::DotProduct(GetActorForwardVector(), VelocityNormalVector));
+    FVector SignAngle = FVector::CrossProduct(GetActorForwardVector(), VelocityNormalVector);
+    float DegreesAngle = FMath::RadiansToDegrees(Angel) * FMath::Sign(SignAngle.Z);
+    return DegreesAngle;
+}

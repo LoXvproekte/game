@@ -14,8 +14,16 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define THEGAME_SHCharacter_generated_h
 
 #define TheGame_Source_TheGame_Public_Player_SHCharacter_h_16_SPARSE_DATA
-#define TheGame_Source_TheGame_Public_Player_SHCharacter_h_16_RPC_WRAPPERS
-#define TheGame_Source_TheGame_Public_Player_SHCharacter_h_16_RPC_WRAPPERS_NO_PURE_DECLS
+#define TheGame_Source_TheGame_Public_Player_SHCharacter_h_16_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execMoveDirection);
+
+
+#define TheGame_Source_TheGame_Public_Player_SHCharacter_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execMoveDirection);
+
+
 #define TheGame_Source_TheGame_Public_Player_SHCharacter_h_16_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesASHCharacter(); \

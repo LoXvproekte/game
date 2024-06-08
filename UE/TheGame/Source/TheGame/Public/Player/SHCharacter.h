@@ -28,6 +28,11 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "SpringArm");
 	USpringArmComponent* SpringArmComponent;
 
+	UFUNCTION(BlueprintCallable)
+	float MoveDirection() const;
+
+
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

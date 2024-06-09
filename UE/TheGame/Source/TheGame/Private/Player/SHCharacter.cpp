@@ -3,8 +3,13 @@
 
 #include "Player/SHCharacter.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Blueprint/WidgetTree.h"
+#include "GameFramework/PlayerInput.h"
+#include "GameFramework/PlayerController.h"
+#include "Engine/World.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+
 
 
 // Sets default values
@@ -20,19 +25,24 @@ ASHCharacter::ASHCharacter()
     CameraComponent = CreateDefaultSubobject<UCameraComponent>("CameraCompopnent");
     CameraComponent->SetupAttachment(SpringArmComponent);
 
+
 }
 
 // Called when the game starts or when spawned
 void ASHCharacter::BeginPlay()
 {
     Super::BeginPlay();
-    GetCharacterMovement()->MaxWalkSpeed = 100;
+    GetCharacterMovement()->MaxWalkSpeed = 50;
 }
+
+
 
 // Called every frame
 void ASHCharacter::Tick(float DeltaTime)
 {
     Super::Tick(DeltaTime);
+
+    UE_LOG(LogTemp, Warning, TEXT("MaxWalkSpeed: %f"), GetCharacterMovement()->MaxWalkSpeed);
 
 }
 
@@ -48,20 +58,29 @@ void ASHCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 
 
     PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ASHCharacter::Jump);
+    
+    PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &ASHCharacter::Sprint);
+    PlayerInputComponent->BindAction("Sprint", IE_Released, this, &ASHCharacter::StopSprint);
+
 }
 
 
-
+float acceleration = 0.01f;
+float maxSpeed = 600.0f;
 
 
 void ASHCharacter::MoveForward(float Value)
 {
-    float acceleration = 0.01f; // Коэффициент ускорения
-    float maxSpeed = 600.0f; // Максимальная скорость передвижения
-
-    float currentSpeed = GetCharacterMovement()->MaxWalkSpeed;
-    currentSpeed = FMath::Lerp(currentSpeed, maxSpeed, acceleration);
-    GetCharacterMovement()->MaxWalkSpeed = currentSpeed;
+    if (Value != 0) {
+        float currentSpeed = GetCharacterMovement()->MaxWalkSpeed;
+        currentSpeed = FMath::Lerp(currentSpeed, maxSpeed, acceleration);
+        GetCharacterMovement()->MaxWalkSpeed = currentSpeed;
+    }
+    else {
+        float currentSpeed = GetCharacterMovement()->MaxWalkSpeed;
+        currentSpeed = FMath::Lerp(50.0f, currentSpeed, acceleration);
+        GetCharacterMovement()->MaxWalkSpeed = currentSpeed;
+    }
     AddMovementInput(GetActorForwardVector(), Value);
 }
 
@@ -80,22 +99,17 @@ void ASHCharacter::MoveRight(float Value)
 
 void ASHCharacter::LookUp(float Value)
 {
-    // Получите компонент камеры
     UCameraComponent* LCameraComponent = FindComponentByClass<UCameraComponent>();
 
     if (LCameraComponent)
     {
-        // Определите минимальный и максимальный угол поворота по вертикали
-        float MinPitch = -55.0f; // Минимальный угол
-        float MaxPitch = 45.0f; // Максимальный угол
+        float MinPitch = -55.0f;
+        float MaxPitch = 45.0f;
 
-        // Получите текущий поворот камеры
         FRotator CurrentRotation = LCameraComponent->GetRelativeRotation();
 
-        // Измените угол поворота по вертикали с учетом входного значения
         float NewPitch = FMath::Clamp(CurrentRotation.Pitch + Value * (-1), MinPitch, MaxPitch);
 
-        // Установите новый поворот камеры
         LCameraComponent->SetRelativeRotation(FRotator(NewPitch, CurrentRotation.Yaw, CurrentRotation.Roll));
     }
 }
@@ -111,10 +125,37 @@ void ASHCharacter::LookRight(float Value)
 
 
 
+
 float ASHCharacter::MoveDirection() const {
     FVector VelocityNormalVector = GetVelocity().GetSafeNormal();
     float Angel = FMath::Acos(FVector::DotProduct(GetActorForwardVector(), VelocityNormalVector));
     FVector SignAngle = FVector::CrossProduct(GetActorForwardVector(), VelocityNormalVector);
     float DegreesAngle = FMath::RadiansToDegrees(Angel) * FMath::Sign(SignAngle.Z);
     return DegreesAngle;
+}
+
+
+
+void ASHCharacter::Sprint()
+{
+    // Устанавливаем желаемую скорость
+    float DesiredSpeed = GetCharacterMovement()->MaxWalkSpeed + 600;
+
+    // Интерполируем текущую скорость к желаемой скорости
+    float InterpolatedSpeed = FMath::FInterpTo(GetCharacterMovement()->MaxWalkSpeed, DesiredSpeed, GetWorld()->GetDeltaSeconds(), 5.0f);
+
+    // Устанавливаем новую скорость
+    GetCharacterMovement()->MaxWalkSpeed = InterpolatedSpeed;
+}
+
+void ASHCharacter::StopSprint()
+{
+    // Устанавливаем желаемую скорость
+    float DesiredSpeed = GetCharacterMovement()->MaxWalkSpeed - 600;
+
+    // Интерполируем текущую скорость к желаемой скорости
+    float InterpolatedSpeed = FMath::FInterpTo(GetCharacterMovement()->MaxWalkSpeed, DesiredSpeed, GetWorld()->GetDeltaSeconds(), 5.0f);
+
+    // Устанавливаем новую скорость
+    GetCharacterMovement()->MaxWalkSpeed = InterpolatedSpeed;
 }

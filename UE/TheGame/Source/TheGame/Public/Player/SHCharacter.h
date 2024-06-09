@@ -19,6 +19,8 @@ public:
 	// Sets default values for this character's properties
 	ASHCharacter();
 
+
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -46,5 +48,8 @@ private:
 	void MoveRight(float Value);
 	void LookUp(float Value);
 	void LookRight(float Value);
+	void Sprint();
+	void StopSprint();
+
 
 };

@@ -24,11 +24,18 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Mesh");
+	UStaticMeshComponent* StaticMeshComponent;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Camera");
 	UCameraComponent* CameraComponent;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "SpringArm");
 	USpringArmComponent* SpringArmComponent;
+
+
+
 
 	UFUNCTION(BlueprintCallable)
 	float MoveDirection() const;

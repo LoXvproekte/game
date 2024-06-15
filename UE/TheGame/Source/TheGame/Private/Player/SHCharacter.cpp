@@ -15,14 +15,17 @@
 // Sets default values
 ASHCharacter::ASHCharacter()
 {
-    // Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
     PrimaryActorTick.bCanEverTick = true;
 
-    SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>("SpringArmComponent");
+
+
+    SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComponent"));
     SpringArmComponent->SetupAttachment(GetRootComponent());
     SpringArmComponent->bUsePawnControlRotation = true;
+    SpringArmComponent->CameraLagMaxDistance = 50;
+    SpringArmComponent->CameraLagMaxTimeStep = 0.2f;
 
-    CameraComponent = CreateDefaultSubobject<UCameraComponent>("CameraCompopnent");
+    CameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraComponent"));
     CameraComponent->SetupAttachment(SpringArmComponent);
 
 
@@ -32,7 +35,9 @@ ASHCharacter::ASHCharacter()
 void ASHCharacter::BeginPlay()
 {
     Super::BeginPlay();
-    GetCharacterMovement()->MaxWalkSpeed = 50;
+
+
+
 }
 
 
@@ -47,14 +52,23 @@ void ASHCharacter::Tick(float DeltaTime)
 }
 
 
+
+// Переменная чтобы манипулировать скоростью, можно заменить если поможет оптимизации
+float maxSpeed = 500.0f;
+
+
 // Called to bind functionality to input
 void ASHCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
+
+
+    // Бинды кнопок
     Super::SetupPlayerInputComponent(PlayerInputComponent);
     PlayerInputComponent->BindAxis("MoveForward", this, &ASHCharacter::MoveForward);
     PlayerInputComponent->BindAxis("MoveRight", this, &ASHCharacter::MoveRight);
     PlayerInputComponent->BindAxis("LookUp", this, &ASHCharacter::LookUp);
     PlayerInputComponent->BindAxis("Turn", this, &ASHCharacter::LookRight);
+
 
 
     PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ASHCharacter::Jump);
@@ -65,12 +79,12 @@ void ASHCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 }
 
 
-float acceleration = 0.01f;
-float maxSpeed = 600.0f;
-
 
 void ASHCharacter::MoveForward(float Value)
 {
+
+    // Код для постепенного увеличения скорости
+    /*
     if (Value != 0) {
         float currentSpeed = GetCharacterMovement()->MaxWalkSpeed;
         currentSpeed = FMath::Lerp(currentSpeed, maxSpeed, acceleration);
@@ -78,25 +92,27 @@ void ASHCharacter::MoveForward(float Value)
     }
     else {
         float currentSpeed = GetCharacterMovement()->MaxWalkSpeed;
-        currentSpeed = FMath::Lerp(50.0f, currentSpeed, acceleration);
+        currentSpeed = FMath::Lerp(50.0f, currentSpeed, 1.0f - acceleration);
         GetCharacterMovement()->MaxWalkSpeed = currentSpeed;
     }
+    */
+    
+    // Кодык для работы ускорения
+    float currentSpeed = GetCharacterMovement()->MaxWalkSpeed;
+    currentSpeed = FMath::Lerp(currentSpeed, maxSpeed, 1);
+    GetCharacterMovement()->MaxWalkSpeed = currentSpeed;
+
     AddMovementInput(GetActorForwardVector(), Value);
 }
 
-
-
-/*
-void ASHCharacter::MoveForward(float Value)
-{
-    AddMovementInput(GetActorForwardVector(), Value);
-}
-*/
+// Движение по сторонам, кодык не нужен
 void ASHCharacter::MoveRight(float Value)
 {
     AddMovementInput(GetActorRightVector(), Value);
 }
 
+
+// Функция движения камеры по вертикали 
 void ASHCharacter::LookUp(float Value)
 {
     UCameraComponent* LCameraComponent = FindComponentByClass<UCameraComponent>();
@@ -114,6 +130,8 @@ void ASHCharacter::LookUp(float Value)
     }
 }
 
+
+// Функция движения камеры по горизонтали
 void ASHCharacter::LookRight(float Value)
 {
     if (Value != 0.f && Controller && Controller->IsLocalPlayerController())
@@ -124,8 +142,7 @@ void ASHCharacter::LookRight(float Value)
 }
 
 
-
-
+// Код для анимации, оспределяет вектор двежения персонажа
 float ASHCharacter::MoveDirection() const {
     FVector VelocityNormalVector = GetVelocity().GetSafeNormal();
     float Angel = FMath::Acos(FVector::DotProduct(GetActorForwardVector(), VelocityNormalVector));
@@ -136,26 +153,31 @@ float ASHCharacter::MoveDirection() const {
 
 
 
+// Нужны для ускорения
+bool bIsSprinting = false;
+float SprintMultiplier = 1.5f;
+
+// Функция ускорения
 void ASHCharacter::Sprint()
 {
-    // Устанавливаем желаемую скорость
-    float DesiredSpeed = GetCharacterMovement()->MaxWalkSpeed + 600;
-
-    // Интерполируем текущую скорость к желаемой скорости
-    float InterpolatedSpeed = FMath::FInterpTo(GetCharacterMovement()->MaxWalkSpeed, DesiredSpeed, GetWorld()->GetDeltaSeconds(), 5.0f);
-
-    // Устанавливаем новую скорость
-    GetCharacterMovement()->MaxWalkSpeed = InterpolatedSpeed;
-}
-
-void ASHCharacter::StopSprint()
+    if(bIsSprinting == false)
 {
-    // Устанавливаем желаемую скорость
-    float DesiredSpeed = GetCharacterMovement()->MaxWalkSpeed - 600;
-
-    // Интерполируем текущую скорость к желаемой скорости
-    float InterpolatedSpeed = FMath::FInterpTo(GetCharacterMovement()->MaxWalkSpeed, DesiredSpeed, GetWorld()->GetDeltaSeconds(), 5.0f);
-
-    // Устанавливаем новую скорость
-    GetCharacterMovement()->MaxWalkSpeed = InterpolatedSpeed;
+        bIsSprinting = true;
+        maxSpeed *= SprintMultiplier;
+    }
 }
+
+//Функция остановки после ускорения
+void ASHCharacter::StopSprint(){
+    if
+        (bIsSprinting == true)
+    {
+        bIsSprinting = false;
+        maxSpeed /= SprintMultiplier;
+    }
+}
+
+
+
+
+

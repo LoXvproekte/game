@@ -53,15 +53,6 @@
     <ClCompile Include="..\..\Source\TheGame\Private\SHGameModeBase.cpp">
       <Filter>Source\TheGame\Private</Filter>
     </ClCompile>
-    <Filter Include="Source\TheGame\Private\Inventory">
-      <UniqueIdentifier>{63346146-A9FC-4D04-A57C-DFBD4E8AF723}</UniqueIdentifier>
-    </Filter>
-    <ClCompile Include="..\..\Source\TheGame\Private\Inventory\SHInventoryComponent.cpp">
-      <Filter>Source\TheGame\Private\Inventory</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\TheGame\Private\Inventory\SHInventoryWidget.cpp">
-      <Filter>Source\TheGame\Private\Inventory</Filter>
-    </ClCompile>
     <Filter Include="Source\TheGame\Private\Player">
       <UniqueIdentifier>{B7A8AC7D-1041-451E-91C2-AD33BD4F28DE}</UniqueIdentifier>
     </Filter>
@@ -71,26 +62,11 @@
     <ClCompile Include="..\..\Source\TheGame\Private\Player\SHPlayerController.cpp">
       <Filter>Source\TheGame\Private\Player</Filter>
     </ClCompile>
-    <Filter Include="Source\TheGame\Private\UI">
-      <UniqueIdentifier>{3399BDDA-2F1E-4D70-897E-E536B50B23B4}</UniqueIdentifier>
-    </Filter>
-    <ClCompile Include="..\..\Source\TheGame\Private\UI\SHPlayerHUD.cpp">
-      <Filter>Source\TheGame\Private\UI</Filter>
-    </ClCompile>
     <Filter Include="Source\TheGame\Public">
       <UniqueIdentifier>{8EE9C585-8CB2-4D90-85C7-7B67714D87E8}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\TheGame\Public\SHGameModeBase.h">
       <Filter>Source\TheGame\Public</Filter>
-    </ClInclude>
-    <Filter Include="Source\TheGame\Public\Inventory">
-      <UniqueIdentifier>{DD10A0B7-D64C-4323-AB98-96F233CEB06C}</UniqueIdentifier>
-    </Filter>
-    <ClInclude Include="..\..\Source\TheGame\Public\Inventory\SHInventoryComponent.h">
-      <Filter>Source\TheGame\Public\Inventory</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\TheGame\Public\Inventory\SHInventoryWidget.h">
-      <Filter>Source\TheGame\Public\Inventory</Filter>
     </ClInclude>
     <Filter Include="Source\TheGame\Public\Player">
       <UniqueIdentifier>{21159CEC-F741-4D5A-93B2-7BF01B110E88}</UniqueIdentifier>
@@ -100,12 +76,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\TheGame\Public\Player\SHPlayerController.h">
       <Filter>Source\TheGame\Public\Player</Filter>
-    </ClInclude>
-    <Filter Include="Source\TheGame\Public\UI">
-      <UniqueIdentifier>{A28C622F-DD9E-43D6-BFD5-C8C3A2CCFD53}</UniqueIdentifier>
-    </Filter>
-    <ClInclude Include="..\..\Source\TheGame\Public\UI\SHPlayerHUD.h">
-      <Filter>Source\TheGame\Public\UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

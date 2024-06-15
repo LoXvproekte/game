@@ -67,6 +67,7 @@ public: \
 
 
 #define TheGame_Source_TheGame_Public_Player_SHCharacter_h_16_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__StaticMeshComponent() { return STRUCT_OFFSET(ASHCharacter, StaticMeshComponent); } \
 	FORCEINLINE static uint32 __PPO__CameraComponent() { return STRUCT_OFFSET(ASHCharacter, CameraComponent); } \
 	FORCEINLINE static uint32 __PPO__SpringArmComponent() { return STRUCT_OFFSET(ASHCharacter, SpringArmComponent); }
 

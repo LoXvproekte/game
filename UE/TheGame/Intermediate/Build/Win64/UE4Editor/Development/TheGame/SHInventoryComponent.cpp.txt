@@ -1,3 +1,0 @@
-D:\1game\game\UE\TheGame\Intermediate\Build\Win64\UE4Editor\Development\TheGame\Definitions.TheGame.h
-D:\1game\game\UE\TheGame\Source\TheGame\Public\Inventory/SHInventoryComponent.h
-D:\1game\game\UE\TheGame\Intermediate\Build\Win64\UE4Editor\Inc\TheGame\SHInventoryComponent.generated.h
